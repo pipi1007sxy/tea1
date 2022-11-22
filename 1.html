@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>第一汤</title>
+		<style type="text/css">
+			body{
+				width:640px;
+				height:1030px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				position: relative;
+				background-image:url("img/bg1.png");
+				margin: 0%;
+				
+			}
+			.change{
+				opacity:0;
+				animation: rv 2s ease 1;
+				animation-delay: 1s;
+				animation-fill-mode: forwards;
+			}
+			.img{
+				width: 640px;
+				height: 400px;
+				background-image: url("img/minxian.png") ;
+				background-repeat: no-repeat;
+				position: absolute;
+				top:630px;
+				z-index: 2;
+				animation: move 2s ease 1;
+				}
+			@keyframes move {
+					0%{
+						transform: translateX(-400px);
+					}
+					100%{
+						transform: translateX(0px);
+					}
+			}
+			@keyframes rv{
+				    0%{opacity:0}
+				    50%{opacity:0.5}
+				    100%{opacity:1}
+			}
+			.frame{
+				width: 640px;
+				height: 200px;
+				position: absolute;
+				background-image: url("img/ziti.png") ;
+				top:825px;
+				z-index: 1;
+			    animation: rv 3s ease 1;
+				animation: ;
+			}
+			
+			.img3{
+				width: 400px;
+				height: 600px;
+				position: absolute;
+				top:190px;
+				left:140px;
+				background-image: url("img/wan.png") ;
+				background-size: 92%;
+				background-repeat: no-repeat;
+				
+			}
+		
+			.img4{
+				width: 124px;
+				height: 106px;
+				background-image: url("img/light.png") ;
+				background-repeat: no-repeat;
+				position: absolute;
+				top:750px;
+				left:255px;
+				}
+			.tool{
+				width: 300px;
+				height: 300px;
+				background-image: url("img/IMG_9388.PNG") ;
+				background-repeat: no-repeat;
+				position: absolute;
+				background-size: 100%;
+				left:230px;
+				top:80px;
+				transform-origin:center;
+				animation-delay: 1.7s;
+			}
+			.tool:hover{
+			
+			  		transform:rotateX(60deg);
+			
+				}
+			}
+		</style>
+		
+	</head>
+	
+	<body>
+			<div class="img" ></div>
+			<div class="frame" ></div>
+			<div class="img3 change" ></div>
+			<div class="img4 change" ></div>
+			<div class="tool change" ></div>
+	</body>
+</html>

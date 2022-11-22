@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		
+		<title>磨茶</title>
+		<script src="js/mo.js"></script>
+		<style type="text/css">
+			body{
+					width:640px;
+					height:1030px;
+					background-size: 100%;
+					background-image:url("img/mo1.png");
+					background-repeat:no-repeat;
+					background-position: center 0;
+					margin:0%;
+			}
+							
+							
+			#tool{
+				   width: 100%;
+				    height: 100%;
+					background-size: 100%;			
+					position: absolute;
+					background-image: url("img/IMG_2886.PNG");
+					background-repeat: no-repeat;
+				    left:-10px;
+					
+					animation:rv 4s linear 1 ;
+				}
+								            
+											
+				@keyframes rv{
+							0%{opacity:0}
+							50%{opacity:0.5}
+							100%{opacity:1}
+			                }
+			.img{
+					width: 640px;
+					height: 400px;
+					background-image: url("img/minxian.png") ;
+					background-repeat: no-repeat;
+					position: absolute;
+					top:630px;
+					z-index: 2;
+					animation: move 2s ease 1;
+				}
+							@keyframes move {
+									0%{
+										transform: translateX(-400px);
+									}
+									100%{
+										transform: translateX(0px);
+									}
+							}	
+							.frame{
+								width: 640px;
+								height: 300px;
+								position: absolute;
+								background-image: url("img/frame.png") ;
+								background-repeat:no-repeat;
+								background-size: 100%;
+								top:740px;
+								z-index: 1;
+								opacity: 0;
+								
+							    animation: rv 3s ease 1;
+								animation-delay: 1s;
+								animation-fill-mode: forwards;
+							}
+							.page{
+								width: 640px;
+								height: 300px;
+								background-repeat:no-repeat;
+								position: absolute;
+								background-image: url("img/mopage.png") ;
+								background-size: 100%;
+								top:740px;
+								z-index: 3;
+							    animation: rv 2s ease 1;
+								animation-delay: 1.5s;
+								opacity: 0;
+							    animation-fill-mode: forwards;
+						}
+						.tishi{
+							width: 200px;
+							height: 100px;
+							position: absolute;
+							background-image: url("img/tishi.png") ;
+							background-repeat:no-repeat;
+							background-size: 100%;
+							top:930px;
+							left:150px;
+							z-index: 4;
+							animation: rv 0.5s ease 1;
+							animation-delay: 2s;
+							opacity: 0;
+							animation-fill-mode: forwards;
+						}
+						
+		</style>
+		
+	</head>
+	<body>
+			<div  id="tool" ></div>
+			<div  class="img" ></div>
+			<div  class="frame" ></div>
+			<div  class="page" ></div>
+			<div  class="tishi" ></div>
+		
+	</body>
+	
+</html>
