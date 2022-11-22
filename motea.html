@@ -5,11 +5,11 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		
 		<title>磨茶</title>
-		<script src="js/mo.js"></script>
+		
 		<style type="text/css">
 			body{
 				    width:100%;
-					height: 1030px;
+					height: 100%;
 					background-size: 100%;
 					background-image:url("img/mo1.png");
 					background-repeat:no-repeat;
@@ -104,12 +104,30 @@
 		
 	</head>
 	<body>
-			<div  id="tool" ></div>
+			<div  id="tool" onclick="click()"></div>
 			<div  class="img" ></div>
 			<div  class="frame" ></div>
 			<div  class="page" ></div>
 			<div  class="tishi" ></div>
 		
 	</body>
-	
+	<script type="text/javascript">
+		var index=0;
+		    document.getElementById("tool").onclick=function(){
+				
+				
+				var d1="img/IMG_2887.PNG";
+				var d2="img/IMG_2888.PNG";
+					if(index==0){
+						index=1;
+						document.getElementById("tool").style.backgroundImage='url('+d1+')';
+					}
+					else if(index==1){
+						index=0;
+						document.getElementById("tool").style.backgroundImage='url('+d2+')';
+					}
+				
+				
+			}
+	</script>
 </html>
