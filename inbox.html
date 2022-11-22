@@ -6,25 +6,26 @@
 		<title>入罐</title>
 		<style type="text/css">
 			body{
-					width:640px;
-					height:1030px;
+					width:100%;
+					height: 100%;
 					background-size: 100%;
 					background-image:url("img/ru.png");
 					background-repeat:no-repeat;
 					background-position: center 0;
-					margin:0%;
+					margin:0 auto;
 			}
 			
 			.tool{
-				   width: 100%;
-				    height: 100%;
-					background-size: 100%;			
-					position: absolute;
-					background-image: url("img/IMG_7075.PNG");
-					background-repeat: no-repeat;
-				    left:-10px;
-					top:-30px;
-					animation:rv 4s linear 1 ;
+				   width:100%;
+				    height:320px;
+				   	position: relative;
+				    background-size: 80%;
+				   	background-image: url("img/IMG_7075.PNG");
+				   	background-position: center 0;
+				   					background-repeat: no-repeat;
+				    
+				   					margin:0 auto;
+				   					animation:rv 4s linear 1 ;
 				}
 								            
 											
@@ -34,12 +35,13 @@
 							100%{opacity:1}
 			                }
 			.img{
-					width: 640px;
-					height: 400px;
+					width:380px;
+					height:270px;
 					background-image: url("img/minxian.png") ;
 					background-repeat: no-repeat;
-					position: absolute;
-					top:630px;
+					background-size: 60%;
+					position: relative;
+					top:80px;
 					z-index: 2;
 					animation: move 2s ease 1;
 				}
@@ -52,46 +54,48 @@
 									}
 							}	
 							.frame{
-								width: 640px;
-								height: 300px;
-								position: absolute;
+								width:100%;
+								height:200px;
+								position: relative;
 								background-image: url("img/frame.png") ;
 								background-repeat:no-repeat;
 								background-size: 100%;
-								top:740px;
+								top:-120px;
 								z-index: 1;
 								opacity: 0;
+								
 								
 							    animation: rv 3s ease 1;
 								animation-delay: 1s;
 								animation-fill-mode: forwards;
 							}
 							.page{
-								width: 478px;
-								height: 159px;
+								width:100%;
+								height:100px;
 								background-repeat:no-repeat;
-								position: absolute;
+								position: relative;
+								top:-250px;
 								background-image: url("img/inp.png") ;
-								background-size: 100%;
-								top:840px;
-								left: 120px;
+								background-size: 80%;
+								
 								z-index: 3;
-							    animation: rv 5s ease 1;
+								z-index: 3;
+								animation: rv 5s ease 1;
 								animation-delay: 1.5s;
 								opacity: 0;
-							    animation-fill-mode: forwards;
+								animation-fill-mode: forwards;
 								
 						}
 						
 						.tishi{
-							width: 200px;
-							height: 100px;
-							position: absolute;
+							width: 100%;
+							height: 50px;
+							position: relative;
 							background-image: url("img/tishi.png") ;
 							background-repeat:no-repeat;
 							background-size: 100%;
-							top:930px;
-							left:150px;
+							top:-300px;
+							
 							z-index: 4;
 							animation: rv 0.5s ease 1;
 							animation-delay: 2s;
