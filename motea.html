@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -104,7 +106,7 @@
 		
 	</head>
 	<body>
-			<div  id="tool" onclick="click()"></div>
+			<div  id="tool" ></div>
 			<div  class="img" ></div>
 			<div  class="frame" ></div>
 			<div  class="page" ></div>
@@ -112,27 +114,26 @@
 		
 	</body>
 	<script type="text/javascript">
-		var index=0;
-		    document.getElementById("tool").onclick=function(){
+		    var index=0;
+			//可换的图片
+			var d1="img/IMG_2887.PNG";
+			var d2="img/IMG_2888.PNG";
+			var d3="img/IMG_2886.PNG";
+		   
+		    var tool=document.getElementById("tool");
+			//滑动进行磨茶
+			tool.addEventListener('touchmove',function(){
+				if(index==0){
+					index=1;
+					tool.style.backgroundImage='url('+d1+')';
+				}
+				else if(index==1){
+					index=2;
+					tool.style.backgroundImage='url('+d2+')';
+				}
+				else if(index==2){
+				}
 				
-				
-				var d1="img/IMG_2887.PNG";
-				var d2="img/IMG_2888.PNG";
-				var d3="img/IMG_2886.PNG"
-					if(index==0){
-						index=1;
-						document.getElementById("tool").style.backgroundImage='url('+d1+')';
-					}
-					else if(index==1){
-						index=2;
-						document.getElementById("tool").style.backgroundImage='url('+d2+')';
-					}
-					else if(index==2){
-						index=0;
-						document.getElementById("tool").style.backgroundImage='url('+d3+')';
-					}
-				
-				
-			}
+			})
 	</script>
 </html>
