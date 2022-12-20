@@ -6,7 +6,7 @@
 		<title>罗茶</title>
 		<style type="text/css">
 			body{
-					width:100%;
+				    width:100%;
 					height: 100%;
 					background-size: 100%;
 					background-image:url("img/luo.png");
@@ -14,18 +14,20 @@
 					background-position: center 0;
 					margin:0 auto;
 			}
-			
-			.tool{
+								
+			#tool{
 				   width:100%;
-				    height:320px;
-				   	position: relative;
-				    background-size: 80%;
-				   	background-image: url("img/IMG_2889.PNG");
-				   	background-position: center 0;
-				   					background-repeat: no-repeat;
+				    height:700px;
+					top:-100px;
+					left:-10px;
+					position: relative;
+				    background-size: 100%;
+					background-image: url("img/IMG_2889.PNG");
+					background-position: center 0;
+					background-repeat: no-repeat;
 				    
-				   					margin:0 auto;
-				   					animation:rv 4s linear 1 ;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
 				}
 								            
 											
@@ -36,16 +38,16 @@
 			                }
 			.img{
 					width:380px;
-					height:270px;
+					height:380px;
 					background-image: url("img/minxian.png") ;
 					background-repeat: no-repeat;
-					background-size: 60%;
+					background-size: 100%;
 					position: relative;
-					top:80px;
+					top:-50px;
 					z-index: 2;
 					animation: move 2s ease 1;
 				}
-					@keyframes move {
+			@keyframes move {
 									0%{
 										transform: translateX(-400px);
 									}
@@ -53,59 +55,56 @@
 										transform: translateX(0px);
 									}
 							}	
-							.frame{
+		    .frame{
 								width:100%;
-								height:200px;
+								height:300px;
 								position: relative;
 								background-image: url("img/frame.png") ;
 								background-repeat:no-repeat;
 								background-size: 100%;
-								top:-120px;
+								top:-350px;
 								z-index: 1;
 								opacity: 0;
 								
 							    animation: rv 3s ease 1;
 								animation-delay: 1s;
 								animation-fill-mode: forwards;
-							}
-							.page{
+				}
+			.page{
 								width:100%;
-								height:150px;
+								height:300px;
 								background-repeat:no-repeat;
 								position: relative;
-								background-image: url("img/luop.png") ;
-								background-size: 90%;
-								top:-310px;
-								z-index: 3;
-								z-index: 3;
-							    animation: rv 5s ease 1;
+								background-image: url("img/mopage.png") ;
+								background-size: 100%;
+								top:-650px;
+								z-index: 4;
+							    animation: rv 2s ease 1;
 								animation-delay: 1.5s;
 								opacity: 0;
 							    animation-fill-mode: forwards;
-								
-						}
-						
-						.tishi{
+				}
+			.tishi{
 							width: 100%;
-							height: 50px;
+							height: 80px;
 							position: relative;
 							background-image: url("img/tishi.png") ;
 							background-repeat:no-repeat;
 							background-size: 100%;
-							top:-350px;
+							top:-780px;
 							left:40px;
 							z-index: 4;
 							animation: rv 0.5s ease 1;
 							animation-delay: 2s;
 							opacity: 0;
 							animation-fill-mode: forwards;
-						}
+				}
 							
 		</style>
 	</head>
 	<body>
 		
-		<div  class="tool" ></div>
+		<div  id="tool" ></div>
 		<div  class="img" ></div>
 		<div  class="frame" ></div>
 		<div  class="page" ></div>
@@ -113,4 +112,31 @@
 				
 		
 	</body>
+	<script type="text/javascript">
+		
+		document.body.addEventListener('touchmove', function(e){
+		        e.preventDefault();
+		    }, { passive: false }); 
+		    var index=0;
+			//可换的图片
+			var d1="img/IMG_2891.PNG";
+			var d2="img/IMG_2890.PNG";
+			var d3="img/IMG_2889.PNG";
+		   
+		    var tool=document.getElementById("tool");
+			//滑动进行罗茶
+			tool.addEventListener('touchmove',function(){
+				if(index==0){
+					index=1;
+					tool.style.backgroundImage='url('+d2+')';
+				}
+				else if(index==1){
+					index=2;
+					tool.style.backgroundImage='url('+d1+')';
+				}
+				else if(index==2){
+				}
+				
+			})
+	</script>
 </html>
