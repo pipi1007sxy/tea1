@@ -43,7 +43,7 @@
 					background-repeat: no-repeat;
 					background-size: 100%;
 					position: relative;
-					top:-50px;
+					top:-380px;
 					z-index: 2;
 					animation: move 2s ease 1;
 				}
@@ -62,7 +62,7 @@
 								background-image: url("img/frame.png") ;
 								background-repeat:no-repeat;
 								background-size: 100%;
-								top:-350px;
+								top:-600px;
 								z-index: 1;
 								opacity: 0;
 								
@@ -75,9 +75,9 @@
 								height:300px;
 								background-repeat:no-repeat;
 								position: relative;
-								background-image: url("img/mopage.png") ;
+								background-image: url("img/luop.png") ;
 								background-size: 100%;
-								top:-650px;
+								top:-1000px;
 								z-index: 4;
 							    animation: rv 2s ease 1;
 								animation-delay: 1.5s;
@@ -91,7 +91,7 @@
 							background-image: url("img/tishi.png") ;
 							background-repeat:no-repeat;
 							background-size: 100%;
-							top:-780px;
+							top:-1100px;
 							left:40px;
 							z-index: 4;
 							animation: rv 0.5s ease 1;
@@ -114,6 +114,9 @@
 	</body>
 	<script type="text/javascript">
 		
+		document.body.addEventListener('touchmove', function(e){
+		        e.preventDefault();
+		    }, { passive: false }); 
 		    var index=0;
 			//可换的图片
 			var d1="img/IMG_2891.PNG";
