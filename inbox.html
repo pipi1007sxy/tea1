@@ -5,25 +5,24 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<title>入罐</title>
 		<style type="text/css">
-			* {
-			    width: 100%;
-			    height: 100%;
-			    padding: 0;
-			    margin: 0;
-			}
+			
 			body{
 					width:640px;
 					height:1030px;
-					background-size: 100%;
+					min-width:320px;
+					max-width:640px;
+				
 					background-image:url("img/ru.png");
 					background-repeat:no-repeat;
 					background-position: center 0;
+					
 					margin:0 auto;
 					position: relative;
+					
 			}
 			#mintool{
 				width:100%;
-				 height:100%;
+				 height:10%;
 					top:-100px;
 					left:-10px;
 					position: absolute;
@@ -36,14 +35,14 @@
 					z-index: 10;
 			}
 			#tool{
-				   width:100%;
-				    height:100%;
-				   	top:-100px;
-				   	left:-10px;
+				   width:50%;
+				    height:15%;
+				   	top:0px;
+				   	left:180px;
 				   	position: absolute;
-				    background-size: 100%;
+				    background-size: 150%;
 				   	background-image: url("img/intool.png");
-				   	background-position: center 0;
+				   	background-position: 0px 0px;
 				   	background-repeat: no-repeat;
 				   	margin:0 auto;
 					animation:rv 4s linear 1 ;
@@ -57,7 +56,8 @@
 			                }
 			.img{
 					width:100%;
-					height:100%;
+					height:30%;
+					display:block;
 					background-image: url("img/minxian.png") ;
 					background-repeat: no-repeat;
 					background-size: 60%;
@@ -76,7 +76,7 @@
 							}	
 							.frame{
 								width:100%;
-								height:100%;
+								height:30%;
 								position: absolute;
 								background-image: url("img/frame.png") ;
 								background-repeat:no-repeat;
@@ -84,14 +84,14 @@
 								top:730px;
 								z-index: 1;
 								opacity: 0;
-								
+								display: block;
 							    animation: rv 3s ease 1;
 								animation-delay: 1s;
 								animation-fill-mode: forwards;
 							}
 							.page{
 								width:100%;
-								height:100%;
+								height:10%;
 								background-repeat:no-repeat;
 								position: absolute;
 								top:820px;
@@ -108,7 +108,7 @@
 						
 						.tishi{
 							width: 100%;
-							height: 100%;
+							height: 5%;
 							position: absolute;
 							background-image: url("img/intip.png") ;
 							background-repeat:no-repeat;
@@ -136,12 +136,23 @@
 	<script type="text/javascript">
 		var index=0;
 		var tool=document.getElementById("mintool");
+		var img=document.getElementsByClassName("img");
+		var frame=document.getElementsByClassName("frame");
 		//可换的图片
 		var d1="img/in1.png";
-		var d2="img/in2.png";
+		var d2="img/in 2.png";
 		var d3="img/IMG_2889.PNG";
+		var background="img/inbox all.png";
 		//设置长按
 		    var timeOutEvent=0;//定时器   
+			var timeOutEvent2=0;//用于animation的定时器
+			//
+			setTimeout(function(){
+				img.style.backgroundImage='';
+				frame.style.background="none";
+				document.body.style.backgroundImage='url('+background+')';
+				
+			},5000);
 		    //开始按   
 		    function gtouchstart(){   
 		        timeOutEvent = setTimeout("longPress()",500);//这里设置定时器，定义长按500毫秒触发长按事件
