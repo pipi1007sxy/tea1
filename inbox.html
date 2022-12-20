@@ -14,18 +14,32 @@
 					background-position: center 0;
 					margin:0 auto;
 			}
-			
-			.tool{
+			#mintool{
+				width:100%;
+				 height:700px;
+					top:-100px;
+					left:-10px;
+					position: absolute;
+				 background-size: 100%;
+					background-image: url("img/in1.png");
+					background-position: center 0;
+					background-repeat: no-repeat;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
+					z-index: 10;
+			}
+			#tool{
 				   width:100%;
-				    height:320px;
+				    height:700px;
+				   	top:-100px;
+				   	left:-10px;
 				   	position: relative;
-				    background-size: 80%;
-				   	background-image: url("img/IMG_7075.PNG");
+				    background-size: 100%;
+				   	background-image: url("img/intool.png");
 				   	background-position: center 0;
-				   					background-repeat: no-repeat;
-				    
-				   					margin:0 auto;
-				   					animation:rv 4s linear 1 ;
+				   	background-repeat: no-repeat;
+				   	margin:0 auto;
+					animation:rv 4s linear 1 ;
 				}
 								            
 											
@@ -35,13 +49,13 @@
 							100%{opacity:1}
 			                }
 			.img{
-					width:380px;
-					height:270px;
+					width:100%;
+					height:400px;
 					background-image: url("img/minxian.png") ;
 					background-repeat: no-repeat;
 					background-size: 60%;
 					position: relative;
-					top:80px;
+					top:-70px;
 					z-index: 2;
 					animation: move 2s ease 1;
 				}
@@ -55,15 +69,14 @@
 							}	
 							.frame{
 								width:100%;
-								height:200px;
+								height:400px;
 								position: relative;
 								background-image: url("img/frame.png") ;
 								background-repeat:no-repeat;
 								background-size: 100%;
-								top:-120px;
+								top:-370px;
 								z-index: 1;
 								opacity: 0;
-								
 								
 							    animation: rv 3s ease 1;
 								animation-delay: 1s;
@@ -71,14 +84,13 @@
 							}
 							.page{
 								width:100%;
-								height:100px;
+								height:200px;
 								background-repeat:no-repeat;
 								position: relative;
-								top:-250px;
+								top:-670px;
+								right:-110px;
 								background-image: url("img/inp.png") ;
 								background-size: 80%;
-								
-								z-index: 3;
 								z-index: 3;
 								animation: rv 5s ease 1;
 								animation-delay: 1.5s;
@@ -89,12 +101,12 @@
 						
 						.tishi{
 							width: 100%;
-							height: 50px;
+							height: 200px;
 							position: relative;
-							background-image: url("img/tishi.png") ;
+							background-image: url("img/intip.png") ;
 							background-repeat:no-repeat;
 							background-size: 100%;
-							top:-300px;
+							top:-830px;
 							
 							z-index: 4;
 							animation: rv 0.5s ease 1;
@@ -106,11 +118,53 @@
 		</style>
 	</head>
 	<body>
-       <div  class="tool" ></div>
+		<div  id="mintool"  ontouchstart="gtouchstart()" ontouchmove="gtouchmove()" ontouchend="gtouchend()" ></div>
+       <div  id="tool" ></div>
        <div  class="img" ></div>
        <div  class="frame" ></div>
        <div  class="page" ></div>
        <div  class="tishi" ></div>
        		
 	</body>
+	<script type="text/javascript">
+		var index=0;
+		var tool=document.getElementById("mintool");
+		//可换的图片
+		var d1="img/in1.png";
+		var d2="img/in2.png";
+		var d3="img/IMG_2889.PNG";
+		//设置长按
+		    var timeOutEvent=0;//定时器   
+		    //开始按   
+		    function gtouchstart(){   
+		        timeOutEvent = setTimeout("longPress()",500);//这里设置定时器，定义长按500毫秒触发长按事件，时间可以自己改，个人感觉500毫秒非常合适   
+		        return false;   
+		    };   
+		    //手释放，如果在500毫秒内就释放，则取消长按事件，此时可以执行onclick应该执行的事件   
+		    function gtouchend(){   
+		        clearTimeout(timeOutEvent);//清除定时器   
+		        if(timeOutEvent!=0){   
+		          
+		            alert("要长按茶匙，才能将茶粉倒入罐中噢～");   
+		        }   
+		        return false;   
+		    };   
+		    function gtouchmove(){   
+		        clearTimeout(timeOutEvent);//清除定时器   
+		        timeOutEvent = 0;   
+		          
+		    };    
+		    //长按后应该执行的内容   
+		    function longPress(){   
+		        timeOutEvent = 0;     
+				if(index==0){
+						index=1;
+						tool.style.backgroundImage='url('+d1+')';
+					}
+					else if(index==1){
+						index=2;
+						tool.style.backgroundImage='url('+d2+')';
+					}	
+		    } 
+	</script>
 </html>
