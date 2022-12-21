@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		
 		<title>磨茶</title>
-		
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js'></script>
 		<style type="text/css">
 			body{
 				    width:100%;
@@ -27,12 +27,24 @@
 					background-image: url("img/IMG_2886.PNG");
 					background-position: center 0;
 					background-repeat: no-repeat;
-				    
 					margin:0 auto;
 					animation:rv 4s linear 1 ;
 				}
-								            
-											
+			#tool2{
+				width:100%;
+				height:600px;
+				position: absolute;
+				top:0px;
+				background-size: 100%;
+				background-image: url("img/IMG_2887.PNG");
+				background-position: center 0;
+				background-repeat: no-repeat;
+				z-index:100;
+				display:none;
+				margin:0 auto;
+				animation:rv 4s linear 1 ;
+			}				            
+								
 				@keyframes rv{
 							0%{opacity:0}
 							50%{opacity:0.5}
@@ -45,7 +57,7 @@
 					background-repeat: no-repeat;
 					background-size: 100%;
 					position: relative;
-					top:-300px;
+					top:-200px;
 					z-index: 2;
 					animation: move 2s ease 1;
 				}
@@ -60,11 +72,11 @@
 							.frame{
 								width:100%;
 								height:300px;
-								position: relative;
+								position: absolute;
 								background-image: url("img/frame.png") ;
 								background-repeat:no-repeat;
 								background-size: 100%;
-								top:-510px;
+								top:700px;
 								z-index: 1;
 								opacity: 0;
 								
@@ -77,8 +89,9 @@
 								height:300px;
 								background-repeat:no-repeat;
 								position: relative;
-								background-image: url("img/mopage.png") ;
+								background-image: url("img/motip.png") ;
 								background-size: 100%;
+								perspective: 500px;
 								top:-800px;
 								z-index: 3;
 							    animation: rv 2s ease 1;
@@ -107,6 +120,7 @@
 	</head>
 	<body>
 			<div  id="tool" ></div>
+			<div  id="tool2" ></div>
 			<div  class="img" ></div>
 			<div  class="frame" ></div>
 			<div  class="page" ></div>
@@ -114,7 +128,8 @@
 		
 	</body>
 	<script type="text/javascript">
-			document.body.addEventListener('touchmove', function(e){
+		
+		document.body.addEventListener('touchmove', function(e){
 		        e.preventDefault();
 		    }, { passive: false }); 
 		    var index=0;
@@ -128,15 +143,24 @@
 			tool.addEventListener('touchmove',function(){
 				if(index==0){
 					index=1;
-					tool.style.backgroundImage='url('+d1+')';
+					alert("yes");
+					tool.className="tool2";
+					//tool.style.backgroundImage='url('+d1+')';
 				}
-				else if(index==1){
+				/*else if(index==1){
 					index=2;
 					tool.style.backgroundImage='url('+d2+')';
+					
 				}
 				else if(index==2){
 				}
-				
+				*/
 			})
+			$("#tool").click(function(){
+				console.log('1');
+			  $("#tool").fadeOut(1000);
+			  $("#tool2").fadeIn(1000);
+			});
+			
 	</script>
 </html>
