@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 		<title>第一汤</title>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js'></script>
 		<style type="text/css">
 			body{
 				width:100%;
@@ -13,6 +14,8 @@
 				background-repeat:no-repeat;
 				background-position: center 0;
 				margin:0 auto;
+				position: relative;
+				overflow: hidden;
 				
 			}
 			.change{
@@ -23,17 +26,16 @@
 			}
 			.img3{
 				width:100%;
-				 height:380px;
+				 height:250px;
 					position: absolute;
-					top:180px;
+					top:130px;
 				 background-size: 60%;
 					background-image: url("img/wan.png");
 					background-position: center 0;
-									background-repeat: no-repeat;
-				 
-									margin:0 auto;
-									animation:rv 4s linear 1 ;
-									animation-fill-mode: forwards;
+					background-repeat: no-repeat;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
+					animation-fill-mode: forwards;
 				
 			}
 			.img{
@@ -75,31 +77,44 @@
 			}
 			
 			
-			//工具置托
+			
 			.img4{
 				width: 124px;
 				height: 70px;
 				background-image: url("img/light.png") ;
 				background-repeat: no-repeat;
 				position: absolute;
-				top:300px;
-				left:280px;
+				background-size: 70%;
+				top:400px;
+				left:170px;
 				}
-				//工具
-			.tool{
+			
+			#tool{
+				width: 300px;
+				height: 300px;
+				background-image: url("img/IMG_9387.PNG") ;
+				background-repeat: no-repeat;
+				position: absolute;
+				background-size: 50%;
+				z-index:100000000;
+				top:290px;
+				left:160px;
+				transform-origin:center;
+				animation-delay: 1.7s;
+			}
+			.teatool{
 				width: 300px;
 				height: 300px;
 				background-image: url("img/IMG_9388.PNG") ;
 				background-repeat: no-repeat;
-				position: relative;
-				background-size: 70%;
-				
-				top:0px;
-				left:150px;
+				position: absolute;
+				background-size: 50%;
+				z-index:100000000;
+				top:290px;
+				left:160px;
 				transform-origin:center;
 				animation-delay: 1.7s;
 			}
-			
 			
 		</style>
 		
@@ -107,11 +122,77 @@
 	
 	<body>
 		    <div class="img3 change" ></div>
-			<div class="tool change" ></div>
+			<div id="tool" class="change" ></div>
 			<div class="img" ></div>
 			<div class="frame" ></div>
-			
 			<div class="img4 change" ></div>
 			
 	</body>
+	<script>
+		// 定义茶匙拖拽
+		var div = document.querySelector('#tool');
+		var div2 = document.querySelector('.img3');
+		 // 获取手指初始坐标和盒子的原来位置
+		         var startX = 0;
+		         var startY = 0;
+		         //获取盒子原来的位置
+		         var x = 0;
+		         var y = 0;
+				 //保存最初的位置
+				 var xx=0;
+				 var yy=0;
+				 var yes=0
+		div.addEventListener('touchstart', function (e) {
+            // 得到初始的手指坐标
+			var index=0
+            startX = e.targetTouches[0].pageX;
+            startY = e.targetTouches[0].pageY;
+            // 获取盒子坐标
+            x = this.offsetLeft;
+            y = this.offsetTop;
+			if(index==0){
+				xx = x;
+				yy = y;
+				index++;
+			}
+			
+        })
+        div.addEventListener('touchmove', function (e) {
+            // 手指的移动距离= 手指移动之后的坐标 - 手指初始的坐标
+            var moveX = e.targetTouches[0].pageX - startX;
+            var moveY = e.targetTouches[0].pageY - startY;
+            // 移动盒子，盒子原来的位置+手指移动的距离
+            this.style.left = x + moveX + 'px';
+            this.style.top = y + moveY + 'px';
+			if(this.offsetLeft> div2.offsetLeft+150 && this.offsetTop>div2.offsetTop && this.offsetTop<250 ){
+				$("#tool").css("background-image","url('img/IMG_9388.PNG')")
+				var yes=0;
+			}
+			if(this.offsetTop>div2.offsetTop+div2.offsetHeight-100){
+				$("#tool").css("background-image","url('img/IMG_9387.PNG')")
+				var yes=1;
+			}
+            // 阻止屏幕滚动行为 
+            e.preventDefault();
+
+        })
+		div.addEventListener('touchend',function(e){
+			
+			if(yes==0 ){
+				$(".img3").css("background-size","100%")
+				$(".img3").css("background-position-y","-100")
+				$(".img3").css("background-image","url('img/1dao.gif')")
+				this.style.display='none';
+			}
+			//盒子回原来的位置
+			else if(yes==1){
+				
+				$("#tool").css("background-image","url('img/IMG_9387.PNG')")
+				this.style.left=xx+'px';
+				this.style.top=yy+'px';
+				
+			}
+		})
+
+	</script>
 </html>
