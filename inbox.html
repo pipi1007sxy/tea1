@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js'></script>
 		<title>入罐</title>
 		<style type="text/css">
 			
@@ -18,64 +19,50 @@
 					
 					margin:0 auto;
 					position: relative;
-				        overflow: hidden;
 					
 			}
 			#mintool{
 				width:100%;
-				 height:10%;
+				 height:640px;
 					top:-100px;
 					left:-10px;
 					position: absolute;
 				 background-size: 100%;
-					background-image: url("img/in1.png");
+					background-image: url("img/intool1.png");
 					background-position: center 0;
 					background-repeat: no-repeat;
 					margin:0 auto;
 					animation:rv 4s linear 1 ;
-					z-index: 10;
+					z-index: 111;
 			}
-			#tool{
-				   width:50%;
-				    height:15%;
-				   	top:0px;
-				   	left:180px;
-				   	position: absolute;
-				    background-size: 150%;
-				   	background-image: url("img/intool.png");
-				   	background-position: 0px 0px;
-				   	background-repeat: no-repeat;
-				   	margin:0 auto;
-					animation:rv 4s linear 1 ;
-				}
-								            
-											
+					
 				@keyframes rv{
 							0%{opacity:0}
 							50%{opacity:0.5}
 							100%{opacity:1}
 			                }
 			.img{
-					width:100%;
-					height:30%;
+					width:280px;
+					height:280px;
 					display:block;
 					background-image: url("img/minxian.png") ;
 					background-repeat: no-repeat;
 					background-size: 60%;
+					background-position: 0 0;
 					position: absolute;
-					top:580px;
+					top:600px;
 					z-index: 2;
 					animation: move 2s ease 1;
 				}
 					@keyframes move {
 									0%{
 										transform: translateX(-400px);
-									}
+									  }
 									100%{
 										transform: translateX(0px);
-									}
-							}	
-							.frame{
+									    }
+									}	
+			.frame{
 								width:100%;
 								height:30%;
 								position: absolute;
@@ -89,8 +76,8 @@
 							    animation: rv 3s ease 1;
 								animation-delay: 1s;
 								animation-fill-mode: forwards;
-							}
-							.page{
+				}
+			.page{
 								width:100%;
 								height:10%;
 								background-repeat:no-repeat;
@@ -105,9 +92,9 @@
 								opacity: 0;
 								animation-fill-mode: forwards;
 								
-						}
+					}
 						
-						.tishi{
+			.tishi{
 							width: 100%;
 							height: 5%;
 							position: absolute;
@@ -121,13 +108,44 @@
 							animation-delay: 2s;
 							opacity: 0;
 							animation-fill-mode: forwards;
-						}
-			
+			}
+			#mintool2{
+				width:100%;
+				 height:630px;
+					top:-100px;
+					left:-10px;
+					position: absolute;
+				 background-size: 120%;
+				 display:none;
+					background-image: url("img/intool2.PNG");
+					background-position: center 0;
+					background-repeat: no-repeat;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
+					z-index: 10;
+			}
+			#mintool3{
+				width:100%;
+				 height:630px;
+					top:-100px;
+					left:-10px;
+					position: absolute;
+				 background-size: 120%;
+				 display:none;
+					background-image: url("img/intool3.PNG");
+					background-position: center 0;
+					background-repeat: no-repeat;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
+					z-index: 9;
+			}
 		</style>
 	</head>
 	<body>
-		<div  id="mintool"  ontouchstart="gtouchstart()" ontouchmove="gtouchmove()" ontouchend="gtouchend()" ></div>
-       <div  id="tool" ></div>
+		<div  id="mintool"  ontouchstart="gtouchstart1()" ontouchmove="gtouchmove1()" ontouchend="gtouchend1()" ></div>
+		<div  id="mintool2"  ontouchstart="gtouchstart2()" ontouchmove="gtouchmove2()" ontouchend="gtouchend2()" ></div>
+		<div  id="mintool3"  ontouchstart="gtouchstart()" ontouchmove="gtouchmove()" ontouchend="gtouchend()" ></div>
+		<div id="tool"></div>
        <div  class="img" ></div>
        <div  class="frame" ></div>
        <div  class="page" ></div>
@@ -139,28 +157,27 @@
 		var tool=document.getElementById("mintool");
 		var img=document.getElementsByClassName("img");
 		var frame=document.getElementsByClassName("frame");
-		//可换的图片
-		var d1="img/in1.png";
-		var d2="img/in 2.png";
-		var d3="img/IMG_2889.PNG";
-		var background="img/inbox all.png";
+		
 		//设置长按
 		    var timeOutEvent=0;//定时器   
 			var timeOutEvent2=0;//用于animation的定时器
-			//
-			setTimeout(function(){
-				img.style.backgroundImage='';
-				frame.style.background="none";
-				document.body.style.backgroundImage='url('+background+')';
-				
-			},5000);
+			// 阻止屏幕滚动行为
+			document.body.addEventListener('touchmove',function(){
+				e.preventDefault();
+			})
+			
+			
 		    //开始按   
-		    function gtouchstart(){   
-		        timeOutEvent = setTimeout("longPress()",500);//这里设置定时器，定义长按500毫秒触发长按事件
+		    function gtouchstart1(){   
+		        timeOutEvent = setTimeout("longPress1()",500);//这里设置定时器，定义长按500毫秒触发长按事件
 		        return false;   
-		    };   
+		    };
+			function gtouchstart1(){
+			    timeOutEvent = setTimeout("longPress2()",500);//这里设置定时器，定义长按500毫秒触发长按事件
+			    return false;   
+			};  
 		    //手释放，如果在500毫秒内就释放，则取消长按事件  
-		    function gtouchend(){   
+		    function gtouchend1(){   
 		        clearTimeout(timeOutEvent);//清除定时器   
 		        if(timeOutEvent!=0){   
 		          
@@ -168,22 +185,37 @@
 		        }   
 		        return false;   
 		    };   
-		    function gtouchmove(){   
+		    function gtouchmove1(){   
 		        clearTimeout(timeOutEvent);//清除定时器   
-		        timeOutEvent = 0;   
-		          
-		    };    
-		    //长按后应该执行的内容   
-		    function longPress(){   
 		        timeOutEvent = 0;     
-				if(index==0){
-						index=1;
-						tool.style.backgroundImage='url('+d1+')';
-					}
-					else if(index==1){
-						index=2;
-						tool.style.backgroundImage='url('+d2+')';
-					}	
-		    } 
+		    };   
+			 
+			function gtouchend2(){
+			    clearTimeout(timeOutEvent);//清除定时器   
+			    if(timeOutEvent!=0){   
+			      
+			        alert("要长按茶匙，才能将茶粉倒入罐中噢～");   
+			    }   
+			    return false;   
+			};   
+			function gtouchmove2(){   
+			    clearTimeout(timeOutEvent);//清除定时器   
+			    timeOutEvent = 0;     
+			};  
+		    //长按后应该执行的内容   
+		    function longPress1(){   
+		        timeOutEvent = 0;     
+				$("#mintool").fadeOut(1000);
+				$("#mintool2").fadeIn(1000);
+		    };
+		// function longPress2(){
+		//     timeOutEvent = 0;     
+		// 	$("#mintool").fadeOut(1000);
+		// 	$("#mintool2").fadeOut(1000);
+		// 	$("#mintool3").fadeIn(1000);
+		// };
+		$("#mintool3").click(function(){
+			location.href='1.html'
+		})
 	</script>
 </html>
