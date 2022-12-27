@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>第三汤</title>
+		<style type="text/css">
+			body{
+				width:100%;
+				height: 100%;
+				background-size: 100%;
+				background-image:url('img/3.png');
+				background-repeat:no-repeat;
+				background-position: center 0;
+				margin:0 auto;
+				position: relative;
+				overflow: hidden;
+				}
+			.change{
+				opacity:0;
+				animation: rv 2s ease 1;
+				animation-delay: 1s;
+				animation-fill-mode: forwards;
+			}
+			@keyframes rv{
+				    0%{opacity:0}
+				    50%{opacity:0.5}
+				    100%{opacity:1}
+			}	
+			.img3{
+					width:100%;
+					height:330px;
+					position:absolute;
+					top:220px;
+					background-size: 100%;
+					background-image: url("img/3tool1.png");
+					background-position: center 0;
+					background-repeat: no-repeat;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
+					animation-fill-mode: forwards;
+				}
+			#beizi{
+				width: 100%;
+				height: 300px;
+				background-image: url("img/beizi1.png") ;
+				background-repeat: no-repeat;
+				position: absolute;
+				background-size: 100%;
+				z-index:100000000;
+				top:600px;
+				left:-10px;
+				transform-origin:center;
+				animation-delay: 1.7s;
+			}
+					
+			#shai{
+				width: 100%;
+				height: 300px;
+				background-image: url("img/2reangile.png");
+				background-repeat: no-repeat;
+				position: absolute;
+				background-size: 100%;
+				z-index:100000000;
+				top:620px;
+				left:-10px;
+				transform-origin:center;
+				animation-delay: 1.7s;
+			}
+			#point{
+				width: 100%;
+				height: 300px;
+				background-image: url("img/tool2.png");
+				background-repeat: no-repeat;
+				position: absolute;
+				background-size: 100%;
+				z-index:100000000;
+				top:700px;
+				
+				transform-origin:center;
+				animation-delay: 1.7s;
+			}
+			.page{
+					width:100%;
+					height:300px;
+					background-repeat:no-repeat;
+					position: absolute;
+					background-image: url("img/3page1.png");
+					background-size: 100%;
+					
+					top:860px;
+					z-index: 10000;
+				    animation: rv 2s ease 1;
+					animation-delay: 1.5s;
+					opacity: 0;
+				    animation-fill-mode: forwards;
+			}
+			.img4{
+				width:100%;
+				height:330px;
+				position:absolute;
+				top:200px;
+				background-size: 100%;
+				background-image: url("img/3tool2.png");
+				background-position: center 0;
+				background-repeat: no-repeat;
+				margin:0 auto;
+				display: none;
+				animation:rv 4s linear 1 ;
+				animation-fill-mode: forwards;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="img3 change" ></div>
+		<div class="img4 change" ></div>
+		<div id="beizi" class="change" ></div>
+		<div id="shai" class="change" ></div>
+		<div id="point"  ></div>
+		<div class="page change" ></div>
+	</body>
+	<script>
+		// 定义茶匙拖拽
+		var beizi = document.querySelector('#beizi');
+		var div2 = document.querySelector('.img3');
+		 // 获取手指初始坐标和盒子的原来位置
+		         var startX = 0;
+		         var startY = 0;
+		         //获取盒子原来的位置
+		         var x = 0;
+		         var y = 0;
+				 //保存最初的位置
+				 var xx=0;
+				 var yy=0;
+				 var yes=0
+				 var index=0
+		beizi.addEventListener('touchstart', function (e) {
+		    // 得到初始的手指坐标
+			
+		    startX = e.targetTouches[0].pageX;
+		    startY = e.targetTouches[0].pageY;
+		    // 获取盒子坐标
+		    x = this.offsetLeft;
+		    y = this.offsetTop;
+			if(index==0){
+				xx = x;
+				yy = y;
+				index++;
+			}
+			alert('1')
+		})
+		beizi.addEventListener('touchmove', function (e) {
+		    // 手指的移动距离= 手指移动之后的坐标 - 手指初始的坐标
+		    var moveX = e.targetTouches[0].pageX - startX;
+		    var moveY = e.targetTouches[0].pageY - startY;
+		    // 移动盒子，盒子原来的位置+手指移动的距离
+		    this.style.left = x + moveX + 'px';
+		    this.style.top = y + moveY + 'px';
+		    // 阻止屏幕滚动行为 
+		    e.preventDefault();
+		
+		})
+		beizi.addEventListener('touchend',function(e){
+			
+			if(yes==0 ){
+				$(".img3").css("background-size","100%")
+				$(".img3").css("top","210px")
+				$(".img3").css("background-image","url('img/22.png')")
+				$(".page").css("background-image","url('img/3tool2.png')")
+				// this.style.display='none';
+				this.style.left=xx+'px';
+				this.style.top=yy+'px';
+				
+			}
+			//盒子回原来的位置
+			else if(yes==1){
+				
+			
+				this.style.left=xx+'px';
+				this.style.top=yy+'px';
+				
+			}
+		
+		})
+		
+	</script>
+</html>
