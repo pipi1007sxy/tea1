@@ -5,7 +5,6 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-		
 		<title>磨茶</title>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js'></script>
 		<style type="text/css">
@@ -13,11 +12,11 @@
 				    width:100%;
 					height: 100%;
 					background-size: 100%;
-					background-image:url("img/mo1.png");
+					background-image:url("img/mo/mo1.png");
 					background-repeat:no-repeat;
 					background-position: center 0;
 					margin:0 auto;
-					overflow:hidden;
+					overflow: hidden;
 			}
 								
 			#tool{
@@ -44,19 +43,27 @@
 				display:none;
 				margin:0 auto;
 				animation:rv 4s linear 1 ;
-			}				            
-								
-				@keyframes rv{
-							0%{opacity:0}
-							50%{opacity:0.5}
-							100%{opacity:1}
-			                }
+			}
+			#tool3{
+					width:100%;
+					height:600px;
+					position: absolute;
+					top:0px;
+					background-size: 100%;
+					background-image: url("img/IMG_2888.PNG");
+					background-position: center 0;
+					background-repeat: no-repeat;
+					z-index:101;
+					display:none;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
+				}
 			.img{
-					width:380px;
-					height:460px;
+					width:280px;
+					height:280px;
 					background-image: url("img/minxian.png") ;
 					background-repeat: no-repeat;
-					background-size: 100%;
+					background-size: 90%;
 					position: absolute;
 					top:280px;
 					z-index: 2;
@@ -77,7 +84,7 @@
 								background-image: url("img/frame.png") ;
 								background-repeat:no-repeat;
 								background-size: 100%;
-								top:520px;
+								top:500px;
 								z-index: 1;
 								opacity: 0;
 								
@@ -90,11 +97,11 @@
 								height:300px;
 								background-repeat:no-repeat;
 								position: absolute;
-								background-image: url("img/motip.png") ;
+								background-image: url("img/mo/mopage1.gif") ;
 								background-size: 100%;
-								perspective: 500px;
+								
 								top:500px;
-								z-index: 3;
+								z-index: 10000;
 							    animation: rv 2s ease 1;
 								animation-delay: 1.5s;
 								opacity: 0;
@@ -113,55 +120,57 @@
 							animation: rv 0.5s ease 1;
 							animation-delay: 2s;
 							opacity: 0;
+							display:none;
 							animation-fill-mode: forwards;
 						}
-						
+						@keyframes rv{
+									0%{opacity:0}
+									50%{opacity:0.5}
+									100%{opacity:1}
+						            }
 		</style>
 		
 	</head>
 	<body>
+	
 			<div  id="tool" ></div>
 			<div  id="tool2" ></div>
+			<div  id="tool3" ></div>
 			<div  class="img" ></div>
 			<div  class="frame" ></div>
 			<div  class="page" ></div>
-			<div  class="tishi" ></div>
-		
+			
 	</body>
 	<script type="text/javascript">
-		
-		document.body.addEventListener('touchmove', function(e){
-		        e.preventDefault();
-		    }, { passive: false }); 
+		//  unmuteButton.addEventListener('click', function() {
+		//    video.muted = false;
+		// document.body.addEventListener('touchmove', function(e){
+		//         e.preventDefault();
+		//     }, { passive: false }); 
+			var timeOutEvent=0;//定时器
+		    var timeOutEvent2=0;//用于animation的定时器
 		    var index=0;
-			//可换的图片
-			var d1="img/IMG_2887.PNG";
-			var d2="img/IMG_2888.PNG";
-			var d3="img/IMG_2886.PNG";
-		   
 		    var tool=document.getElementById("tool");
+			var tool2=document.getElementById('tool2');
+			
 			//滑动进行磨茶
 			tool.addEventListener('touchmove',function(){
-				if(index==0){
-					index=1;
-					alert("yes");
-					tool.className="tool2";
-					//tool.style.backgroundImage='url('+d1+')';
-				}
-				/*else if(index==1){
-					index=2;
-					tool.style.backgroundImage='url('+d2+')';
-					
-				}
-				else if(index==2){
-				}
-				*/
-			})
-			$("#tool").click(function(){
-				console.log('1');
-			  $("#tool").fadeOut(1000);
-			  $("#tool2").fadeIn(1000);
+				$("#tool").fadeOut(1000);
+				$("#tool2").fadeIn(1000);
 			});
+			
+			tool2.addEventListener('touchmove',function(){
+				$("#tool2").fadeOut(1000);
+				$("#tool3").fadeIn(1000);
+			})
+			
+			$(".page").click(function(){
+				$(".page").css("background-image","url('img/mo/mopage2.png')");
+			});
+			$('#tool3').click(function(){
+				location.href='luotea.html';
+			})
+			
 			
 	</script>
 </html>
