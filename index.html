@@ -1,58 +1,176 @@
+
+
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>TEA</title>
-		<meta charset="utf-8" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>磨茶</title>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js'></script>
 		<style type="text/css">
 			body{
-				background-size: cover;
-				background-image:url("img/WechatIMG17.png");
-				background-repeat:no-repeat;
-				background-position: center 0;
-				
+				    width:100%;
+					height: 100%;
+					background-size: 100%;
+					background-image:url("img/mo/mo1.png");
+					background-repeat:no-repeat;
+					background-position: center 0;
+					margin:0 auto;
+					overflow: hidden;
 			}
-			ul{
-			        list-style-type:none;
-			      	margin:0px auto;
-			      	padding:0px;
-			 }
-			 .mainDiv{
-			 	position: relative;
-			 }
-			.mainDiv ul{
+								
+			#tool{
+				   width:100%;
+				    height:600px;
+					position: relative;
+				    background-size: 100%;
+					background-image: url("img/IMG_2886.PNG");
+					background-position: center 0;
+					background-repeat: no-repeat;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
+				}
+			#tool2{
 				width:100%;
-				display: flex;
-				flex-direction: column;
-				align-content:center;
-				
+				height:600px;
+				position: absolute;
+				top:0px;
+				background-size: 100%;
+				background-image: url("img/IMG_2887.PNG");
+				background-position: center 0;
+				background-repeat: no-repeat;
+				z-index:100;
+				display:none;
+				margin:0 auto;
+				animation:rv 4s linear 1 ;
 			}
-			.mainDiv ul li{
-				
-			      	line-height:120px;
-			      	
-			      }
-			.mainDiv a{
-				position: relative;
-				left:50px;
-			}		
+			#tool3{
+					width:100%;
+					height:600px;
+					position: absolute;
+					top:0px;
+					background-size: 100%;
+					background-image: url("img/IMG_2888.PNG");
+					background-position: center 0;
+					background-repeat: no-repeat;
+					z-index:101;
+					display:none;
+					margin:0 auto;
+					animation:rv 4s linear 1 ;
+				}
+			.img{
+					width:280px;
+					height:280px;
+					background-image: url("img/minxian.png") ;
+					background-repeat: no-repeat;
+					background-size: 90%;
+					position: absolute;
+					top:280px;
+					z-index: 2;
+					animation: move 2s ease 1;
+				}
+							@keyframes move {
+									0%{
+										transform: translateX(-400px);
+									}
+									100%{
+										transform: translateX(0px);
+									}
+							}	
+							.frame{
+								width:100%;
+								height:300px;
+								position: absolute;
+								background-image: url("img/frame.png") ;
+								background-repeat:no-repeat;
+								background-size: 100%;
+								top:500px;
+								z-index: 1;
+								opacity: 0;
+								
+							    animation: rv 3s ease 1;
+								animation-delay: 1s;
+								animation-fill-mode: forwards;
+							}
+							.page{
+								width:100%;
+								height:300px;
+								background-repeat:no-repeat;
+								position: absolute;
+								background-image: url("img/mo/mopage1.gif") ;
+								background-size: 100%;
+								
+								top:500px;
+								z-index: 10000;
+							    animation: rv 2s ease 1;
+								animation-delay: 1.5s;
+								opacity: 0;
+							    animation-fill-mode: forwards;
+						}
+						.tishi{
+							width: 100%;
+							height: 80px;
+							position: absolute;
+							background-image: url("img/tishi.png") ;
+							background-repeat:no-repeat;
+							background-size: 100%;
+							top:580px;
+							left:40px;
+							z-index: 4;
+							animation: rv 0.5s ease 1;
+							animation-delay: 2s;
+							opacity: 0;
+							display:none;
+							animation-fill-mode: forwards;
+						}
+						@keyframes rv{
+									0%{opacity:0}
+									50%{opacity:0.5}
+									100%{opacity:1}
+						            }
 		</style>
+		
 	</head>
 	<body>
-		<embed src="/Users/sixuyang/Music/QQ音乐/杨青-问茶.mp3 " autostart="true" loop="true" hidden="true">
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		<div class="mainDiv">
+	
+			<div  id="tool" ></div>
+			<div  id="tool2" ></div>
+			<div  id="tool3" ></div>
+			<div  class="img" ></div>
+			<div  class="frame" ></div>
+			<div  class="page" ></div>
 			
-			<ul>
-				<li><a href="">捣茶工具</a></li>
-				<br/><br/>
-				<li><a href="1.html">1工具</a></li>
-				<br/><br/>
-				<li><a href="motea.html">磨茶工具</a></li>
-				<br/><br/>
-				<li><a href="luotea.html">罗茶工具</a></li>
-				<br/><br/>
-				<li><a href="inbox.html">入罐工具</a></li>
-			</ul>
-		</div>
 	</body>
+	<script type="text/javascript">
+		//  unmuteButton.addEventListener('click', function() {
+		//    video.muted = false;
+		// document.body.addEventListener('touchmove', function(e){
+		//         e.preventDefault();
+		//     }, { passive: false }); 
+			var timeOutEvent=0;//定时器
+		    var timeOutEvent2=0;//用于animation的定时器
+		    var index=0;
+		    var tool=document.getElementById("tool");
+			var tool2=document.getElementById('tool2');
+			
+			//滑动进行磨茶
+			tool.addEventListener('touchmove',function(){
+				$("#tool").fadeOut(1000);
+				$("#tool2").fadeIn(1000);
+			});
+			
+			tool2.addEventListener('touchmove',function(){
+				$("#tool2").fadeOut(1000);
+				$("#tool3").fadeIn(1000);
+			})
+			
+			$(".page").click(function(){
+				$(".page").css("background-image","url('img/mo/mopage2.png')");
+			});
+			$('#tool3').click(function(){
+				location.href='luotea.html';
+			})
+			
+			
+	</script>
 </html>
